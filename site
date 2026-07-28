@@ -1,4 +1,3 @@
-# bordeprest.github.io
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -247,9 +246,61 @@
   }
 
   /* CONTACT */
-  .contact p { max-width: 52ch; color: var(--text-soft); margin-bottom: 1.8rem; }
+  .contact > p { max-width: 52ch; color: var(--text-soft); margin-bottom: 2rem; }
 
-  .contact-links {
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 480px;
+  }
+
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .form label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+  }
+
+  .form input,
+  .form textarea {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 0.97rem;
+    color: var(--text);
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 0.7rem 0.9rem;
+    width: 100%;
+    transition: border-color 0.15s;
+    outline: none;
+    resize: vertical;
+  }
+
+  .form input:focus,
+  .form textarea:focus {
+    border-color: var(--accent);
+  }
+
+  .form textarea { min-height: 120px; }
+
+  .form-success {
+    display: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.82rem;
+    color: var(--accent);
+    margin-top: 0.5rem;
+  }
+
+  .contact-extra {
+    margin-top: 2rem;
     display: flex;
     gap: 0.8rem;
     flex-wrap: wrap;
@@ -395,11 +446,37 @@
     <h2>Herkenbaar proces dat te veel tijd kost?</h2>
     <p>Vertel me wat je team tijd kost, dan bekijk ik wat er automatisch kan lopen.</p>
 
-    <div class="contact-links">
-      <!-- PAS AAN: e-mailadres (2x: in href én in de zichtbare tekst) -->
-      <a class="btn primary" href="mailto:jouw@email.be">jouw@email.be</a>
+    <!-- PAS AAN: vervang YOUR_FORM_ID door jouw Formspree ID.
+         Ga naar formspree.io, maak een gratis account aan, klik "New Form"
+         en kopieer het ID uit de action-URL (bv. xpzgkvqw). -->
+    <form class="form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST"
+          onsubmit="handleSubmit(event)">
 
-      <!-- PAS AAN: LinkedIn-URL -->
+      <div class="form-row">
+        <label for="naam">Naam</label>
+        <input type="text" id="naam" name="naam" placeholder="Jan Janssen" required>
+      </div>
+
+      <div class="form-row">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="jan@bedrijf.be" required>
+      </div>
+
+      <div class="form-row">
+        <label for="bericht">Bericht</label>
+        <textarea id="bericht" name="bericht" placeholder="Vertel me welk proces je tijd kost..." required></textarea>
+      </div>
+
+      <button type="submit" class="btn primary" style="align-self:flex-start; cursor:pointer; border:none;">
+        Verstuur
+      </button>
+
+      <p class="form-success" id="successMsg">Bedankt, ik neem snel contact op.</p>
+    </form>
+
+    <div class="contact-extra">
+      <!-- PAS AAN: e-mailadres en LinkedIn -->
+      <a class="btn" href="mailto:jouw@email.be">jouw@email.be</a>
       <a class="btn" href="https://www.linkedin.com/in/jouw-profiel" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </section>
@@ -411,5 +488,22 @@
 
 </div>
 
+
+<script>
+async function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+  const res = await fetch(form.action, {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  });
+  if (res.ok) {
+    form.reset();
+    document.getElementById('successMsg').style.display = 'block';
+  }
+}
+</script>
 </body>
 </html>
