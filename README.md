@@ -1,1 +1,415 @@
 # bordeprest.github.io
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bor - Automation Specialist</title>
+
+<!-- ══════════════════════════════════════════════════════════════
+     AANPASSEN DOE JE ZO:
+     Zoek in dit bestand naar "PAS AAN" — elk punt dat je zelf
+     wil wijzigen (foto, e-mail, LinkedIn, teksten) is zo gemarkeerd.
+     ══════════════════════════════════════════════════════════════ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #FDFDFC;
+    --text: #16181D;
+    --text-soft: #5A5F6A;
+    --line: #E8E7E3;
+    --accent: #2743E0;
+    --accent-soft: #EDF0FE;
+    --radius: 10px;
+    --maxw: 760px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Instrument Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    font-size: 1.02rem;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--accent-soft); }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    display: block;
+    margin-bottom: 1.1rem;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+  }
+
+  /* HERO */
+  header {
+    padding: 7rem 0 4.5rem;
+  }
+
+  header h1 {
+    font-size: clamp(1.9rem, 4.5vw, 2.7rem);
+    font-weight: 600;
+    max-width: 17ch;
+    margin-bottom: 1.4rem;
+  }
+
+  header p.sub {
+    color: var(--text-soft);
+    max-width: 52ch;
+    margin-bottom: 2.2rem;
+  }
+
+  .hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    padding: 0.65rem 1.3rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--text);
+    color: var(--text);
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .btn:hover { background: var(--text); color: var(--bg); text-decoration: none; }
+  .btn.primary { background: var(--text); color: var(--bg); }
+  .btn.primary:hover { background: var(--accent); border-color: var(--accent); }
+
+  /* workflow-motief */
+  .flow {
+    margin-top: 4rem;
+    width: 100%;
+    overflow: visible;
+  }
+  .flow line { stroke: var(--line); stroke-width: 1.5; }
+  .flow .dash {
+    stroke: var(--accent);
+    stroke-width: 1.5;
+    stroke-dasharray: 6 10;
+    animation: flowmove 3.5s linear infinite;
+  }
+  .flow circle { fill: var(--bg); stroke: var(--text); stroke-width: 1.5; }
+  .flow circle.on { stroke: var(--accent); }
+  .flow text {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    fill: var(--text-soft);
+  }
+  @keyframes flowmove { to { stroke-dashoffset: -32; } }
+  @media (prefers-reduced-motion: reduce) {
+    .flow .dash { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* SECTIES */
+  section {
+    padding: 4.5rem 0;
+    border-top: 1px solid var(--line);
+  }
+
+  h2 {
+    font-size: 1.45rem;
+    font-weight: 600;
+    margin-bottom: 1.6rem;
+  }
+
+  /* OVER MIJ */
+  .about {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 2.8rem;
+    align-items: start;
+  }
+
+  .about.no-photo {
+    grid-template-columns: 1fr;
+  }
+
+  .avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: var(--radius);
+    object-fit: cover;
+    border: 1px solid var(--line);
+    background: var(--accent-soft);
+    display: block;
+  }
+
+  .about-text p { margin-bottom: 1rem; }
+  .about-text p:last-of-type { margin-bottom: 0; }
+
+  .about .meta {
+    margin-top: 1.6rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.76rem;
+    color: var(--text-soft);
+    line-height: 2.1;
+  }
+
+  @media (max-width: 560px) {
+    .about { grid-template-columns: 1fr; gap: 1.6rem; }
+    .avatar { width: 100px; height: 100px; }
+  }
+
+  /* CASES */
+  .case { margin-bottom: 3.5rem; }
+  .case:last-child { margin-bottom: 0; }
+
+  .case h3 {
+    font-size: 1.18rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+  }
+
+  .case .block { margin-bottom: 1.3rem; }
+
+  .case .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .case p { color: var(--text); }
+  .case .block > p { max-width: 68ch; }
+
+  .case ul {
+    list-style: none;
+    margin-top: 0.6rem;
+  }
+  .case li {
+    padding-left: 1.4rem;
+    position: relative;
+    margin-bottom: 0.7rem;
+    color: var(--text);
+  }
+  .case li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent);
+  }
+  .case li strong { font-weight: 600; }
+
+  .tools {
+    margin-top: 1.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .tools span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.74rem;
+    color: var(--text-soft);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.22rem 0.7rem;
+  }
+
+  /* CONTACT */
+  .contact p { max-width: 52ch; color: var(--text-soft); margin-bottom: 1.8rem; }
+
+  .contact-links {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 2rem 0 3rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.74rem;
+    color: var(--text-soft);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <header>
+    <span class="eyebrow">Bor - automation specialist</span>
+
+    <!-- PAS AAN: hoofdzin -->
+    <h1>Ik automatiseer repetitieve processen voor bedrijven.</h1>
+
+    <!-- PAS AAN: subtekst -->
+    <p class="sub">n8n, AI en CRM-integraties die leads opvolgen, taken uitvoeren en tijd besparen. Zonder dat iemand er nog naar moet omkijken.</p>
+
+    <div class="hero-actions">
+      <a class="btn primary" href="#werk">Bekijk mijn werk</a>
+      <a class="btn" href="#contact">Contact</a>
+    </div>
+
+    <svg class="flow" viewBox="0 0 720 70" aria-hidden="true">
+      <line class="dash" x1="34" y1="28" x2="238" y2="28"/>
+      <line class="dash" x1="252" y1="28" x2="456" y2="28"/>
+      <line class="dash" x1="470" y1="28" x2="674" y2="28"/>
+      <circle cx="27" cy="28" r="7"/>
+      <circle class="on" cx="245" cy="28" r="7"/>
+      <circle class="on" cx="463" cy="28" r="7"/>
+      <circle cx="681" cy="28" r="7"/>
+      <text x="12" y="58">trigger</text>
+      <text x="222" y="58">scrape</text>
+      <text x="448" y="58">ai</text>
+      <text x="666" y="58">crm</text>
+    </svg>
+  </header>
+
+  <!-- OVER MIJ -->
+  <section id="over">
+    <span class="eyebrow">Over mij</span>
+    <div class="about">
+
+      <!-- PAS AAN: profielfoto.
+           Zet je foto in dezelfde map als dit bestand en vervang
+           "profielfoto.jpg" door de juiste bestandsnaam.
+           Werkt ook met een volledige URL.
+           Zonder foto verdwijnt het vak automatisch. -->
+      <img class="avatar" src="profielfoto.jpg" alt="Foto van Bor"
+           onerror="this.style.display='none'; this.parentElement.classList.add('no-photo');">
+
+      <div class="about-text">
+        <!-- PAS AAN: over mij-tekst -->
+        <p>Ik ben Bor, 21 jaar. Ik behaalde cum laude mijn bachelor Business Management Marketing aan UCLL en deed mijn stage bij Level27, een Belgische hosting- en cloudprovider in Hasselt.</p>
+        <p>Daar bouwde ik het volledige leadmanagement om: van handmatige spreadsheets naar een geautomatiseerd CRM met AI-gestuurde leadkwalificatie en cold outreach.</p>
+        <p>Nu werk ik zelfstandig aan gelijkaardige projecten voor andere bedrijven.</p>
+
+        <div class="meta">
+          UCLL - Business Management Marketing, cum laude (2026)<br>
+          Level27 - Marketing &amp; Sales Automation
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASES -->
+  <section id="werk">
+    <span class="eyebrow">Werk</span>
+
+    <!-- CASE 1 -->
+    <article class="case">
+      <h3>AI-leadsegmentatie en CRM-hygiëne</h3>
+
+      <div class="block">
+        <span class="label">Probleem</span>
+        <p>Nieuwe leads kwamen ongesorteerd binnen in het CRM. Elke lead moest handmatig bekeken worden om te bepalen om wat voor bedrijf het ging en of het een waardevolle lead was. Dat kostte enkele minuten per lead en was foutgevoelig.</p>
+      </div>
+
+      <div class="block">
+        <span class="label">Aanpak</span>
+        <p>Een n8n-workflow die automatisch de website van elke nieuwe lead scrapet, de inhoud via AI classificeert in vaste segmenten (bureau, SaaS-bedrijf, KMO, freelancer) en het resultaat als gestructureerde notitie terugschrijft in het CRM. Daarnaast bouwde ik een reeks kleinere automatiseringen die de betrouwbaarheid van het systeem garanderen:</p>
+        <ul>
+          <li><strong>Deduplicatie-controle:</strong> een aparte flow die bij elke nieuwe lead checkt of er al een lead bestaat met dezelfde naam. Bij een match wordt een notitie toegevoegd en de dubbele lead automatisch verwijderd.</li>
+          <li><strong>Geen dubbele verwerking:</strong> een filter die garandeert dat elke lead maar één keer door de AI-classificatie gaat, ook wanneer het systeem zijn eigen wijziging als nieuwe trigger zou herkennen (een klassieke race condition bij self-triggering flows).</li>
+          <li><strong>Label- en databehoud:</strong> logica die bestaande labels en gegevens ophaalt en samenvoegt voor elke update, zodat een automatische wijziging nooit bestaande informatie overschrijft.</li>
+          <li><strong>Bestaande-klant matching:</strong> een flow die het btw-nummer van een organisatie automatisch aftoetst tegen de interne klantendatabase, zodat het CRM meteen weet of een lead al klant is.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <span class="label">Resultaat</span>
+        <p>Consistente, ogenblikkelijke segmentatie van elke binnenkomende lead, een CRM zonder dubbels en geen verloren of overschreven data. Volledig zonder manueel opzoekwerk.</p>
+      </div>
+
+      <div class="tools">
+        <span>n8n</span><span>Pipedrive</span><span>Claude API</span><span>web scraping</span><span>REST API</span>
+      </div>
+    </article>
+
+    <!-- CASE 2 -->
+    <article class="case">
+      <h3>Geautomatiseerde cold mailing met AI-personalisatie</h3>
+
+      <div class="block">
+        <span class="label">Probleem</span>
+        <p>Cold outreach naar nieuwe doelgroepen kostte veel tijd per bericht: elke prospect onderzoeken, een persoonlijke aanpak schrijven en manueel opvolgen. Kwaliteit en snelheid stonden tegenover elkaar.</p>
+      </div>
+
+      <div class="block">
+        <span class="label">Aanpak</span>
+        <p>Een workflow die de website van elke prospect scrapet en op basis daarvan via AI een gepersonaliseerde e-mail laat opstellen. Kort, direct, geen opvulzinnen of standaardaanhef. Het concept wordt automatisch als notitie in het CRM klaargezet zodat een menselijke check voor verzending slechts enkele seconden kost. Bijkomende onderdelen:</p>
+        <ul>
+          <li><strong>Automatische sequencing:</strong> eenmaal goedgekeurd wordt het contact toegevoegd aan een follow-up sequentie in het e-mailplatform, met per opvolgmail een nieuwe invalshoek in plaats van een herhaling.</li>
+          <li><strong>Deduplicatie in de opvolging:</strong> labels in het CRM houden bij wie al in welke sequentie zit, zodat niemand dubbel dezelfde cold mail ontvangt via verschillende triggers.</li>
+          <li><strong>Transactionele meldingen:</strong> een gekoppelde flow die automatisch een bevestigingsmail verstuurt zodra een deal in het CRM als gewonnen wordt gemarkeerd, zonder tussenkomst van sales.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <span class="label">Resultaat</span>
+        <p>Schaalbare, persoonlijke outreach zonder in te boeten op kwaliteit. AI doet het herhalende werk, een mens behoudt de eindcontrole.</p>
+      </div>
+
+      <div class="tools">
+        <span>n8n</span><span>Pipedrive</span><span>Campaign Monitor</span><span>Claude API</span><span>web scraping</span>
+      </div>
+    </article>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <span class="eyebrow">Contact</span>
+    <h2>Herkenbaar proces dat te veel tijd kost?</h2>
+    <p>Vertel me wat je team tijd kost, dan bekijk ik wat er automatisch kan lopen.</p>
+
+    <div class="contact-links">
+      <!-- PAS AAN: e-mailadres (2x: in href én in de zichtbare tekst) -->
+      <a class="btn primary" href="mailto:jouw@email.be">jouw@email.be</a>
+
+      <!-- PAS AAN: LinkedIn-URL -->
+      <a class="btn" href="https://www.linkedin.com/in/jouw-profiel" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer>
+    <!-- PAS AAN: footer-tekst -->
+    2026 Bor - automation specialist
+  </footer>
+
+</div>
+
+</body>
+</html>
