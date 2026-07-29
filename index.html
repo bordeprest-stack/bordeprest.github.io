@@ -79,10 +79,17 @@
   }
 
   .logo {
-    height: 34px;
+    height: 60px;
     width: auto;
+    max-width: 260px;
+    object-fit: contain;
+    object-position: left center;
     display: block;
     margin-bottom: 2.4rem;
+  }
+
+  @media (max-width: 560px) {
+    .logo { height: 46px; }
   }
 
   header h1 {
@@ -329,8 +336,8 @@
 
   <!-- HERO -->
   <header>
-    <!-- PAS AAN: logobestand. Zet prestorzwartopwit.svg in dezelfde map. -->
-    <img class="logo" src="prestorzwartopwit.svg" alt="Prestor">
+    <!-- PAS AAN: logobestand. Zet prestorlogo.png in dezelfde map. -->
+    <img class="logo" src="prestorlogo.png" alt="Prestor">
 
     <!-- PAS AAN: hoofdzin -->
     <h1>Ik automatiseer repetitieve processen voor bedrijven.</h1>
