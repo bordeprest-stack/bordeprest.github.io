@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prestor - Automation</title>
+<title>Prestor - AI-consultant voor kmo's</title>
+<meta name="description" content="Prestor is een AI-consultant voor kmo's. Ik stel een diagnose van je werking: eerst systemen, dan team, dan AI. Met concrete quick wins en automatiseringsvoorstellen.">
 <link rel="icon" type="image/png" href="prestorfavicon.png">
 
 <!-- ══════════════════════════════════════════════════════════════
      AANPASSEN DOE JE ZO:
      Zoek in dit bestand naar "PAS AAN" — elk punt dat je zelf
-     wil wijzigen (foto, e-mail, LinkedIn, teksten) is zo gemarkeerd.
+     wil wijzigen (foto, e-mail, LinkedIn, teksten, prijs) is zo gemarkeerd.
      ══════════════════════════════════════════════════════════════ -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -95,13 +96,13 @@
   header h1 {
     font-size: clamp(1.9rem, 4.5vw, 2.7rem);
     font-weight: 600;
-    max-width: 17ch;
+    max-width: 19ch;
     margin-bottom: 1.4rem;
   }
 
   header p.sub {
     color: var(--text-soft);
-    max-width: 52ch;
+    max-width: 54ch;
     margin-bottom: 2.2rem;
   }
 
@@ -157,7 +158,13 @@
   h2 {
     font-size: 1.45rem;
     font-weight: 600;
-    margin-bottom: 1.6rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .lead {
+    color: var(--text-soft);
+    max-width: 58ch;
+    margin-bottom: 2.2rem;
   }
 
   /* OVER MIJ */
@@ -198,6 +205,125 @@
     .avatar { width: 100px; height: 100px; }
   }
 
+  /* AANPAK: drie lagen */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 0.4rem;
+  }
+
+  .pillar {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.4rem 1.3rem 1.5rem;
+    background: #fff;
+  }
+
+  .pillar .num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  .pillar h3 {
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .pillar p {
+    font-size: 0.94rem;
+    color: var(--text-soft);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 680px) {
+    .pillars { grid-template-columns: 1fr; }
+  }
+
+  /* AUDIT */
+  .badge {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 999px;
+    padding: 0.3rem 0.85rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .audit-block { margin-bottom: 2rem; }
+  .audit-block:last-of-type { margin-bottom: 0; }
+
+  .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .ticks { list-style: none; }
+  .ticks li {
+    padding-left: 1.4rem;
+    position: relative;
+    margin-bottom: 0.7rem;
+    max-width: 62ch;
+  }
+  .ticks li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent);
+  }
+  .ticks li strong { font-weight: 600; }
+
+  .weeks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .week {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.2rem 1.2rem 1.3rem;
+    background: #fff;
+  }
+  .week h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+  .week p {
+    font-size: 0.94rem;
+    color: var(--text-soft);
+    line-height: 1.6;
+  }
+  @media (max-width: 680px) {
+    .weeks { grid-template-columns: 1fr; }
+  }
+
+  .price {
+    border-left: 2px solid var(--accent);
+    padding: 0.2rem 0 0.2rem 1.1rem;
+    max-width: 58ch;
+  }
+  .price strong { font-weight: 600; }
+
+  .audit-cta { margin-top: 2.2rem; }
+
   /* CASES */
   .case { margin-bottom: 3.5rem; }
   .case:last-child { margin-bottom: 0; }
@@ -211,12 +337,6 @@
   .case .block { margin-bottom: 1.3rem; }
 
   .case .label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    display: block;
     margin-bottom: 0.35rem;
   }
 
@@ -261,7 +381,7 @@
   }
 
   /* CONTACT */
-  .contact > p { max-width: 52ch; color: var(--text-soft); margin-bottom: 2rem; }
+  .contact > p { max-width: 54ch; color: var(--text-soft); margin-bottom: 2rem; }
 
   .form {
     display: flex;
@@ -340,14 +460,14 @@
     <img class="logo" src="prestorlogo.png" alt="Prestor">
 
     <!-- PAS AAN: hoofdzin -->
-    <h1>Ik automatiseer repetitieve processen voor bedrijven.</h1>
+    <h1>AI-consultant voor kmo's. Eerst de diagnose, dan de automatisatie.</h1>
 
     <!-- PAS AAN: subtekst -->
-    <p class="sub">n8n, AI en CRM-integraties die leads opvolgen, taken uitvoeren en tijd besparen. Zonder dat iemand er nog naar moet omkijken.</p>
+    <p class="sub">Ik breng in kaart waar bij jullie tijd en opvolging verloren gaat, en welke AI of automatisatie echt iets oplevert. In de juiste volgorde: systemen, team, AI.</p>
 
     <div class="hero-actions">
-      <a class="btn primary" href="#werk">Bekijk mijn werk</a>
-      <a class="btn" href="#contact">Contact</a>
+      <a class="btn primary" href="#contact">Gratis audit aanvragen</a>
+      <a class="btn" href="#aanpak">Zo werk ik</a>
     </div>
 
     <svg class="flow" viewBox="0 0 720 70" aria-hidden="true">
@@ -358,12 +478,85 @@
       <circle class="on" cx="245" cy="28" r="7"/>
       <circle class="on" cx="463" cy="28" r="7"/>
       <circle cx="681" cy="28" r="7"/>
-      <text x="12" y="58">trigger</text>
-      <text x="222" y="58">scrape</text>
-      <text x="448" y="58">ai</text>
-      <text x="666" y="58">crm</text>
+      <text x="12" y="58">systemen</text>
+      <text x="228" y="58">team</text>
+      <text x="452" y="58">ai</text>
+      <text x="708" y="58" text-anchor="end">tijdwinst</text>
     </svg>
   </header>
+
+  <!-- AANPAK -->
+  <section id="aanpak">
+    <span class="eyebrow">Aanpak</span>
+    <h2>AI is benzine. Giet het op een goed vuur.</h2>
+    <p class="lead">De meeste bedrijven die iets met AI willen doen, hebben eerst een ander probleem. Giet je AI op een proces dat al uit de hand loopt, dan brandt alles gewoon sneller af. Daarom werk ik in drie lagen.</p>
+
+    <div class="pillars">
+      <div class="pillar">
+        <span class="num">01</span>
+        <h3>Systemen</h3>
+        <p>Waar zit jullie data en klopt ze? Eén CRM, geen duplicaten, gegevens die vanzelf doorstromen.</p>
+      </div>
+      <div class="pillar">
+        <span class="num">02</span>
+        <h3>Team</h3>
+        <p>Hoe werken mensen in de praktijk? Waar wordt overgetikt, gezocht of blijft opvolging liggen?</p>
+      </div>
+      <div class="pillar">
+        <span class="num">03</span>
+        <h3>AI</h3>
+        <p>Pas daarna. Dan zet ik AI in waar het de meeste tijd oplevert, op een fundament dat werkt.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIT -->
+  <section id="audit">
+    <span class="eyebrow">AI-audit</span>
+    <h2>Een diagnose van jullie werking, zoals een dokter.</h2>
+
+    <!-- PAS AAN: actuele aanbieding. Verwijder de badge als de 2 gratis audits vergeven zijn. -->
+    <span class="badge">Nu gratis voor 2 bedrijven, in ruil voor een eerlijke testimonial</span>
+
+    <div class="audit-block">
+      <span class="label">Wat je krijgt</span>
+      <ul class="ticks">
+        <li><strong>De valkuilen</strong> waar tijd of opvolging verloren gaat.</li>
+        <li><strong>Quick wins</strong> die je meteen kunt toepassen. Vaak met tools die je al hebt.</li>
+        <li><strong>Voorstellen voor automatisaties</strong>, met een inschatting van de tijdwinst.</li>
+      </ul>
+    </div>
+
+    <div class="audit-block">
+      <span class="label">In twee weken</span>
+      <div class="weeks">
+        <div class="week">
+          <h3>Week 1: Discovery</h3>
+          <p>3 tot 5 gesprekken van 30 tot 45 minuten met de mensen die het werk doen, en een kaart van hoe het nu echt loopt.</p>
+        </div>
+        <div class="week">
+          <h3>Week 2: Solution design</h3>
+          <p>De kansen gerangschikt op impact en moeilijkheid, gecontroleerd met jullie, en een presentatie voor de beslisser met ROI en ontwikkelkost.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="audit-block">
+      <span class="label">Voor wie</span>
+      <p>Kmo's met 5 tot 50 medewerkers waar het team uren verliest aan overtikken, opvolgen of zoeken, en waar de beslisser mee aan tafel zit.</p>
+    </div>
+
+    <!-- PAS AAN: prijs. Verwijder dit blok als je geen prijs wil tonen. -->
+    <div class="audit-block">
+      <div class="price">
+        <p><strong>Daarna €490 excl. btw.</strong> Beslis je binnen 60 dagen tot implementatie, dan verreken ik dat bedrag bij de opdracht.</p>
+      </div>
+    </div>
+
+    <div class="audit-cta">
+      <a class="btn primary" href="#contact">Gratis audit aanvragen</a>
+    </div>
+  </section>
 
   <!-- OVER MIJ -->
   <section id="over">
@@ -372,7 +565,7 @@
 
       <!-- PAS AAN: profielfoto.
            Zet je foto in dezelfde map als dit bestand en vervang
-           "profielfoto.jpg" door de juiste bestandsnaam.
+           "profielfoto.png" door de juiste bestandsnaam.
            Werkt ook met een volledige URL.
            Zonder foto verdwijnt het vak automatisch. -->
       <img class="avatar" src="profielfoto.png" alt="Foto van Bor"
@@ -380,13 +573,13 @@
 
       <div class="about-text">
         <!-- PAS AAN: over mij-tekst -->
-        <p>Ik ben Bor, 21 jaar. Ik behaalde mijn bachelor Business Management Marketing aan UCLL en deed mijn stage bij Level27, een Belgische hosting- en cloudprovider in Hasselt.</p>
-        <p>Daar bouwde ik het volledige leadmanagement om: van handmatige spreadsheets naar een geautomatiseerd CRM met AI-gestuurde leadkwalificatie en cold outreach.</p>
-        <p>Nu werk ik zelfstandig aan gelijkaardige projecten voor andere bedrijven.</p>
+        <p>Ik ben Bor, 21 jaar, AI-consultant voor kmo's. Ik behaalde mijn bachelor Business Management Marketing aan UCLL.</p>
+        <p>Bij een Belgisch IT-bedrijf bouwde ik het volledige leadproces om: van dezelfde leads dubbel in Excel naar één CRM met AI-kwalificatie. Daar zag ik dat AI pas werkt als eerst de systemen en het team op orde zijn.</p>
+        <p>Die volgorde pas ik nu toe bij andere bedrijven. Ik stel de diagnose, en waar het past bouw ik de oplossing ook zelf.</p>
 
         <div class="meta">
           UCLL - Business Management Marketing, cum laude (2026)<br>
-          Level27 - Marketing &amp; Sales Automation
+          Ervaring - CRM, marketing- en salesautomatisatie, n8n
         </div>
       </div>
     </div>
@@ -394,7 +587,9 @@
 
   <!-- CASES -->
   <section id="werk">
-    <span class="eyebrow">Werk</span>
+    <span class="eyebrow">Uit de praktijk</span>
+    <h2>Ik adviseer niet alleen, ik bouw het ook.</h2>
+    <p class="lead">Twee voorbeelden van wat er na een diagnose gebouwd kan worden.</p>
 
     <!-- CASE 1 -->
     <article class="case">
@@ -459,8 +654,8 @@
   <!-- CONTACT -->
   <section id="contact" class="contact">
     <span class="eyebrow">Contact</span>
-    <h2>Herkenbaar proces dat te veel tijd kost?</h2>
-    <p>Vertel me wat je team tijd kost, dan bekijk ik wat er automatisch kan lopen.</p>
+    <h2>Benieuwd waar bij jullie tijd verloren gaat?</h2>
+    <p>Vertel in een paar zinnen hoe jullie werken en waar het schuurt. Dan kijk ik of een gratis audit past.</p>
 
     <!-- PAS AAN: vervang het Formspree ID in de action-URL indien nodig. -->
     <form class="form" action="https://formspree.io/f/mzdnogdq" method="POST"
@@ -478,7 +673,7 @@
 
       <div class="form-row">
         <label for="bericht">Bericht</label>
-        <textarea id="bericht" name="bericht" placeholder="Vertel me welk proces je tijd kost..." required></textarea>
+        <textarea id="bericht" name="bericht" placeholder="Bijvoorbeeld: hoeveel mensen jullie zijn en welk werk te veel tijd kost..." required></textarea>
       </div>
 
       <button type="submit" class="btn primary" style="align-self:flex-start; cursor:pointer; border:none;">
@@ -490,7 +685,7 @@
 
     <div class="contact-extra">
       <!-- PAS AAN: e-mailadres en LinkedIn -->
-      <a class="btn" href="mailto:bor.deprest@gmail.com">bor.deprest@gmail.com</a>
+      <a class="btn" href="mailto:info@prestor.be">info@prestor.be</a>
       <a class="btn" href="https://www.linkedin.com/in/bor-de-prest" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </section>
